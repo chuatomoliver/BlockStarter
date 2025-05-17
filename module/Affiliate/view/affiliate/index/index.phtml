@@ -1,0 +1,119 @@
+<div class="container space-top-md-2">
+  <h1 class="mt-4 mb-3">Earn
+    <small>Incentives</small>
+  </h1>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="<?php echo $this->url('home'); ?>">Home</a>
+    </li>
+    <li class="breadcrumb-item active">Affiliates</li>
+  </ol>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div id="learnSection" class="clearfix border-bottom">
+        <div class="container">
+          <!-- Title -->
+          <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-9">
+            <p>Get your referal codes and earn incentives.</p>
+          </div>
+          <!-- End Title -->
+
+          <div class="row">
+
+            <!-- Blog Entries Column -->
+            <div class="col-md-12">
+              <?php
+              echo $this->paginationControl(
+                  $this->paginator,
+                  'sliding',
+                  "partial/home/paginator.phtml",
+                  array(
+                    'route' => 'projects',
+                    'search_by' => $this->search_by,
+                  )
+              );
+            ?>
+
+              <?php foreach ($paginator as $row): ?>
+                <article class="d-block card border-0 mb-7">
+                  <div class="card-body p-0">
+                    <div class="row">
+                      <div class="col-sm-5 mb-5 mb-sm-0">
+                        <a href="<?php echo $this->url('project', array('action' => 'view', 'id' => $row->getContractAddress(),)); ?>"><img class="img-fluid w-100 rounded" src="/img/project/<?php echo $row->getId(); ?>/photo_480x320.jpg" alt="<?php echo $this->escapehtml($row->getName()); ?>"></a>
+                      </div>
+                      <div class="col-sm-7">
+                        <div class="pr-4">
+                          <div>
+                            <h2 class="h5">
+                              <a href="<?php echo $this->url('project', array('action' => 'view', 'id' => $row->getContractAddress(),)); ?>"><?php echo $this->escapehtml($row->getName()); ?></a>
+                            </h2>
+                            <p><?php echo $this->escapehtml($row->getDescription()); ?></p>
+                          </div>
+                          <div class="form-group">
+                            <textarea class="form-control copy_url" rows="5"><?php echo $this->escapehtml($row->getName()); ?> <a href="<?php echo $this->config['baseUrl']; ?>project/view/<?php echo $this->escapehtml($row->getContractAddress()); ?>?ref=<?php echo $user->getId(); ?>"><img class="img-fluid w-100 rounded" src="<?php echo $this->config['baseUrl']; ?>img/project/<?php echo $row->getId(); ?>/photo_480x320.jpg" alt="<?php echo $this->escapehtml($row->getName()); ?>"></a></textarea>
+                          </div>
+                          <button class="btn btn-primary copy_button">Copy text</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+              <?php endforeach; ?>
+
+              <?php
+              echo $this->paginationControl(
+                  $this->paginator,
+                  'sliding',
+                  "partial/home/paginator.phtml",
+                  array(
+                    'route' => 'projects',
+                    'search_by' => $this->search_by,
+                  )
+              );
+            ?>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <h5 class="card-header">My Balance: ETH <?php echo number_format($this->userBalance, 8); ?></h5>
+        <div class="card-body text-center">
+          <strong>My Address</strong>
+          <input type="text" class="form-control" value="<?php echo $this->escapehtml($this->user->getPublicAddress()); ?>">
+          <img class="img-fluid" src="<?php echo $this->getQRCode($this->user->getPublicAddress(), 200, 200); ?>">
+        </div>
+      </div>
+      <br>
+      <div class="card">
+        <h5 class="card-header">Refer and earn affiliates!</h5>
+        <div class="card-body">
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          <ul>
+            <li>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</li>
+            <li>when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centurie</li>
+            <li>but also the leap into electronic typesetting, remaining essentially unchanged</li>
+            <li> It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<script>
+$(document).ready(function() {
+ $(".copy_button").click(function() {
+   prompt('Press Ctrl + C, then Enter to copy to clipboard', $(this).closest('div').find('.copy_url').val());
+ });
+ $("#myForm").submit(function() {
+   return signin();
+ });
+})
+</script>
