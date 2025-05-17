@@ -12,7 +12,8 @@
 * Lack of Transparency.
 * Lack of Resources.
 * Lack of Marketing.
-* Solution
+
+## Solution
   
 **App Name**: BlockStarter
 
