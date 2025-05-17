@@ -1,14 +1,13 @@
 # BlockStarter
 **Category**: Supply Chain 
+
 **App Name**: BlockStarter
 
-**Team BlockStarter**
-Unionbank Blockchain Xcellerator
-Category: Supply Chain
-App Name: BlockStarter
+**Team BlockStarter Unionbank Blockchain Xcellerator Category**: Supply Chain
 
-**Problems**
-Problems of existing funding platform
+**App Name**: BlockStarter
+
+**Problems of existing funding platform**
 
 * Lack of Transparency.
 * Lack of Resources.
