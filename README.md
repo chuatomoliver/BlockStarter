@@ -1,5 +1,6 @@
 # BlockStarter
-**Category**: Supply Chain App Name: BlockStarter
+**Category**: Supply Chain 
+**App Name**: BlockStarter
 
 **Team BlockStarter**
 Unionbank Blockchain Xcellerator
